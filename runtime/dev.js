@@ -184,8 +184,8 @@
     }
 
     generator.next = invoke.bind(generator, "next");
-    generator.throw = invoke.bind(generator, "throw");
-    generator.return = invoke.bind(generator, "return");
+    generator['throw'] = invoke.bind(generator, "throw");
+    generator['return'] = invoke.bind(generator, "return");
 
     return generator;
   }
