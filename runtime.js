@@ -61,7 +61,7 @@
     return new Promise(function(resolve, reject) {
       var generator = wrap(innerFn, self, tryList);
       var callNext = step.bind(generator.next);
-      var callThrow = step.bind(generator.throw);
+      var callThrow = step.bind(generator['throw']);
 
       function step(arg) {
         try {
@@ -211,8 +211,8 @@
     }
 
     generator.next = invoke.bind(generator, "next");
-    generator.throw = invoke.bind(generator, "throw");
-    generator.return = invoke.bind(generator, "return");
+    generator['throw'] = invoke.bind(generator, "throw");
+    generator['return'] = invoke.bind(generator, "return");
 
     return generator;
   }
